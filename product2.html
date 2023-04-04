@@ -724,6 +724,15 @@ If you are looking for a special gift or want to invest in a high-end diamond, t
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
     <script src="project.js"></script>
     <script>
+        const Showcart = document.getElementsByClassName("Add--product");
+const cartname = document.getElementById("Cart--count--for--all");
+cartname.innerHTML = localStorage.count;
+ if (localStorage.sum2 > 0){
+    Showcart[0].style.display = "flex";
+}
+    else{
+    Showcart[0].style.display = "none"; 
+}
     var app = angular.module("myApp",['ngRoute']);
     app.config(function($routeProvider){
     $routeProvider
@@ -736,18 +745,7 @@ If you are looking for a special gift or want to invest in a high-end diamond, t
     .when("/page3",{
         templateUrl:"RelatedDiamondPage3.html"
     })
-})
-
-const Showcart = document.getElementsByClassName("Add--product");
-const cartname = document.getElementById("Cart--count--for--all");
-cartname.innerHTML = localStorage.count;
- if (localStorage.sum2 > 0){
-    Showcart[0].style.display = "flex";
-}
-    else{
-    Showcart[0].style.display = "none"; 
-}
-    
+})  
     </script>
     <script src="product2.js" ></script>
 </body>
