@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - HomePage</title>
+    <link rel="stylesheet" href="/eProject_FrontEnd/CSS/project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <header>
+        Welcome to Rock Paradise, your source for Natural stone products.
+    </header>
+    <h1>
+    <img class="img--header" src="/eProject_FrontEnd/image/z4183471246236_3feda9000440fd5b76193d80857be9a7.jpg" alt="">
+    <a href="index.html" class="nav--header">Rock Paradise.</a>
+</h1>
+     <table class="tb1" onmouseleave="comeout(),comeout1(),comeout2(),comeout3(),comeout4()">
+        <tr style="position: relative;">
+        <td ><ul style="display:block;">
+           <li><span class="selection" onmouseover="comein()" >Home</span></li>
+        </ul></td>
+        <td><ul style="display:block;">
+            <li><span class="selection" onmouseover="comein1()">About</span></li>
+        </ul></td>
+        <td><ul style="display:block;">
+            <li><span class="selection" onmouseover="comein2()">News</span></li>
+        </ul></td>
+        <td><ul style="display:block;">
+            <li><span class="selection" onmouseover="comein3()">Shop</span></li>
+        </ul></td>
+        <td><ul style="display:block;">
+            <li><span class="selection" onmouseover="comein4()">Login</span></li>
+        </ul></td>
+        <td><ul style="display:block;">
+            <li>  <div class="container-fluid mt-3">
+              <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart--shop">
+                    <span class="cart-icon">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="cart-count" id="Cart--count--for--all" ></span>
+                      </span>
+                </button>
+              </div></li>
+        </ul></td>
+    </tr>
+    <tr style="position: absolute;">
+        <td> <ul onmouseleave="comeout()">
+            <li><a href="index.html" class="list">Home</a></li>
+        </ul></td>
+        <td> <ul onmouseleave="comeout1()">
+            <li><a href="MyTeam.html" class="list">Our Team</a></li>
+            <li><a href="AboutUs.html" class="list">Contact Us</a></li>
+        </ul></td>
+        <td> <ul onmouseleave="comeout2()">
+            <li><a href="NewestGemstones.html" class="list">Newest gemstones</a></li>
+            <li><a href="NewestDiamond.html" class="list">Newest Diamond</a></li>
+            <li><a href="NewestGold.html" class="list">Newest Gold</a></li>
+            <li><a href="NewestEmerald.html" class="list">Newest Emerald</a></li>
+        </ul></td>
+        <td> <ul onmouseleave="comeout3()">
+            <li><a href="Diamond.html" class="list">Diamond</a></li>
+            <li><a href="Gold.html" class="list">Gold</a></li>
+            <li><a href="Emerald.html" class="list">Emerald</a></li>
+            <li><a href="TotalProduct.html" class="list">Total Product</a></li>
+        </ul></td>
+        <td> <ul onmouseleave="comeout4()">
+            <li><a href="PageCheckOut.html" onclick="return CheckItOut()" class="list">Login And CheckOut</a></li>
+            <li></li>
+        </ul></td>
+    </tr>
+    </table>
+    <!-- dùng bootstrap để đặt nền bên phải cho giỏ hàng -->
+    <div class="offcanvas offcanvas-end" id="cart--shop">
+        <div class="offcanvas-header">
+            <h1 class="offcanvas-title"></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+        <div class="No--cart">
+            <p class="cart--empty">Your cart is currently empty!</p>
+         <a href="TotalProduct.html"><button class="btn btn-secondary" type="button">Start shopping</button></a>
+        </div>
+        <!--  -->
+        <h2 id="Your--cart" style="display: none;">Your cart</h2>
+        <!--  -->
+        <div class="product--diamond1" style="display: none;">
+            <div style="display: flex; justify-content: space-between;">
+        <div>
+        <div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://product.hstatic.net/1000381168/product/upload_301e29c99f6b490b8db72411a2788c55.jpg" alt=""></div> 
+            <span style="font-weight: bold;">Diamond LS 5.3 mm E IF EX</span> <br>
+            <span style="font-weight: bold;">$ 4,657</span>
+            <br><input type="number" class="number--product1" min="0" onkeyup="numberproduct1()" onclick="numberproduct1()">
+        </div>
+        <div>
+           <span id="Total--product1" style="font-weight: bold;"></span>
+        </div>
+    </div>
+        <div>
+            <span onclick="remove1()" class="remove">Remove item</span>
+        </div>
+    </div>
+    <!--  -->
+    <div class="product--diamond2" style="display:none;">
+        <div style="display: flex; justify-content: space-between;">
+    <div>
+    <div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHC-HS9PnDWZ8DUV-TvoqwovKUEEozGeWrqTu1P4rI1YlSdgd4jzK6tZQ9vT7OeTj_NOA&usqp=CAU" alt=""></div> 
+        <span style="font-weight: bold;">Diamond LS 5.1 mm D IF EX</span> <br>
+        <span style="font-weight: bold;">$ 4,634</span>
+        <br><input type="number" class="number--product2" min="0" onkeyup="numberproduct2()" onclick="numberproduct2()" >
+    </div>
+    <div>
+       <span id="Total--product2" style="font-weight: bold;"></span>
+    </div>
+</div>
+    <div>
+        <span onclick="remove2()" class="remove">Remove item</span>
+    </div>
+</div>
+    <!--  -->
+    <div class="product--diamond3" style="display: none;">
+        <div style="display: flex; justify-content: space-between;">
+    <div>
+    <div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://jemmia.vn/wp-content/uploads/2022/05/hot-xoan-3-ly-8-gia-bao-nhieu.jpg" alt=""></div> 
+        <span style="font-weight: bold;">Diamond LS 5.5mm F VS1 EX</span> <br>
+        <span style="font-weight: bold;">$ 4,280</span>
+        <br><input type="number" class="number--product3" min="0" onkeyup="numberproduct3()" onclick="numberproduct3()" >
+    </div>
+    <div>
+       <span id="Total--product3" style="font-weight: bold;"></span>
+    </div>
+</div>
+    <div>
+        <span onclick="remove3()" class="remove">Remove item</span>
+    </div>
+</div>
+<!--  -->
+<div class="product--diamond4" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://diamanti.s3.amazonaws.com/images/diamond/220917-26.jpg" alt=""></div> 
+    <span style="font-weight: bold;">Diamond LS 5.0mm D VVS1 EX</span> <br>
+    <span style="font-weight: bold;">$ 4,138</span>
+    <br><input type="number" class="number--product4" min="0" onkeyup="numberproduct4()" onclick="numberproduct4()">
+</div>
+<div>
+   <span id="Total--product4" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove4()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond5" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="data:image/jpeg;base64,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" alt=""></div> 
+    <span style="font-weight: bold;">Diamond LS 4.5mm D IF EX</span> <br>
+    <span style="font-weight: bold;">$ 3,463</span>
+    <br><input type="number"  class="number--product5" min="0" onkeyup="numberproduct5()" onclick="numberproduct5()">
+</div>
+<div>
+   <span id="Total--product5" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove5()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond6" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3vcw9p1WruwLYYbnRAC7-SjQV8DOJOJGaILSnkN_HOtiWpUDAMshrPjKMxL0J-9jyF_w&usqp=CAU" alt=""></div> 
+    <span style="font-weight: bold;">Diamond LS 4.9mm E IF EX</span> <br>
+    <span style="font-weight: bold;">$ 3,210</span>
+    <br><input type="number" class="number--product6" min="0" onkeyup="numberproduct6()" onclick="numberproduct6()">
+</div>
+<div>
+   <span id="Total--product6" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove6()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond7" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://product.hstatic.net/1000381168/product/upload_62574d43f34d4e7ca5b865cfe1519713.jpg" alt=""></div> 
+    <span style="font-weight: bold;">Diamond LS 4.9mm D VVS2 EX</span> <br>
+    <span style="font-weight: bold;">$ 2,951</span>
+    <br><input type="number" class="number--product7"  min="0" onkeyup="numberproduct7()" onclick="numberproduct7()">
+</div>
+<div>
+   <span id="Total--product7" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove7()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond8" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://product.hstatic.net/1000381168/product/upload_cf246109bd6a4dfe9a23da0c8a4ad4c2.jpg" alt=""></div> 
+    <span style="font-weight: bold;">Diamond LS 4.4mm D IF EX</span> <br>
+    <span style="font-weight: bold;">$ 2,371</span>
+    <br><input type="number" class="number--product8" min="0" onkeyup="numberproduct8()" onclick="numberproduct8()">
+</div>
+<div>
+   <span id="Total--product8" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove8()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond9" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://cdn.pnj.io/images/detailed/37/gldrya07724.014-lac-tay-cuoi-pnj-vang-24k-001.png" alt=""></div> 
+    <span style="font-weight: bold;">Gold wedding bracelet 24k</span> <br>
+    <span style="font-weight: bold;">$ 805</span>
+    <br><input type="number" class="number--product9" min="0" onkeyup="numberproduct9()" onclick="numberproduct9()">
+</div>
+<div>
+   <span id="Total--product9" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove9()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond10" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://cdn.pnj.io/images/detailed/31/gndrya60814.504-gndrya60813.501-nhan-cuoi-kim-cuong-pnj-chung-doi-vang-18k.png" alt=""></div> 
+    <span style="font-weight: bold;">Gold diamond wedding rings 18k</span> <br>
+    <span style="font-weight: bold;">$ 670</span>
+    <br><input type="number" class="number--product10" min="0" onkeyup="numberproduct10()" onclick="numberproduct10()">
+</div>
+<div>
+   <span id="Total--product10" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove10()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond11" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://cdn.pnj.io/images/detailed/48/gvdrya75130.102-vong-tay-pnj-vang-18k-dinh-da-cz.png" alt=""></div> 
+    <span style="font-weight: bold;">Gold bracelet with stones 18k</span> <br>
+    <span style="font-weight: bold;">$ 910</span>
+    <br><input type="number"  class="number--product11" min="0" onkeyup="numberproduct11()" onclick="numberproduct11()">
+</div>
+<div>
+   <span id="Total--product11" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove11()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond12" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://cdn.pnj.io/images/detailed/38/GDT1YKC1009.002-day-chuyen-pnj-vang-18k.jpg" alt=""></div> 
+    <span style="font-weight: bold;">Gold necklace 18k</span> <br>
+    <span style="font-weight: bold;">$ 417</span>
+    <br><input type="number" class="number--product12" min="0" onkeyup="numberproduct12()" onclick="numberproduct12()">
+</div>
+<div>
+   <span id="Total--product12" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove12()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond13" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://cdn.pnj.io/images/detailed/96/gl0000y001608-lac-tay-vang-18k-pnj-001.png" alt=""></div> 
+    <span style="font-weight: bold;">Gold shake 18k</span> <br>
+    <span style="font-weight: bold;">$ 1656</span>
+    <br><input type="number"  class="number--product13" min="0" onkeyup="numberproduct13()" onclick="numberproduct13()">
+</div>
+<div>
+   <span id="Total--product13" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove13()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond14" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="data:image/jpeg;base64,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EREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQERED/9k=" alt=""></div> 
+    <span style="font-weight: bold;">Italian white gold bracelet 18k</span> <br>
+    <span style="font-weight: bold;">$ 973</span>
+    <br><input type="number"  class="number--product14" min="0" onkeyup="numberproduct14()" onclick="numberproduct14()">
+</div>
+<div>
+   <span id="Total--product14" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove14()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond15" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="data:image/jpeg;base64,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" alt=""></div> 
+    <span style="font-weight: bold;">Ruby Disney 14k gold bracelet</span> <br>
+    <span style="font-weight: bold;">$ 1036</span>
+    <br><input type="number" class="number--product15" min="0" onkeyup="numberproduct15()" onclick="numberproduct15()">
+</div>
+<div>
+   <span id="Total--product15" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove15()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond16" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="data:image/png;base64,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" alt=""></div> 
+    <span style="font-weight: bold;">Disney Citrine 14k Gold Necklace</span> <br>
+    <span style="font-weight: bold;">$ 316</span>
+    <br><input type="number" class="number--product16" min="0" onkeyup="numberproduct16()" onclick="numberproduct16()">
+</div>
+<div>
+   <span id="Total--product16" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove16()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond17" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="/eProject_FrontEnd/image/download.png" alt=""></div> 
+    <span style="font-weight: bold;">0.96 Ct.Trillion Emerald</span> <br>
+    <span style="font-weight: bold;">$ 3036</span>
+    <br><input type="number" class="number--product17" min="0" onkeyup="numberproduct17()" onclick="numberproduct17()">
+</div>
+<div>
+   <span id="Total--product17" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove17()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond18" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://media.istockphoto.com/id/544485880/vi/anh/tr%C3%A1i-tim-ng%E1%BB%8Dc-l%E1%BB%A5c-b%E1%BA%A3o-xanh.jpg?s=1024x1024&w=is&k=20&c=WYW4052prZbaSd_RhkSnSJy62cXXXd3uKY6pwdtF7uo=" alt=""></div> 
+    <span style="font-weight: bold;">0.76 Ct.Heart Emerald</span> <br>
+    <span style="font-weight: bold;">$ 3800</span>
+    <br><input type="number" class="number--product18" min="0" onkeyup="numberproduct18()" onclick="numberproduct18()">
+</div>
+<div>
+   <span id="Total--product18" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove18()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond19" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="data:image/jpeg;base64,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" alt=""></div> 
+    <span style="font-weight: bold;">0.99 Ct.Round Emerald</span> <br>
+    <span style="font-weight: bold;">$ 3,663</span>
+    <br><input type="number" class="number--product19" min="0" onkeyup="numberproduct19()" onclick="numberproduct19()">
+</div>
+<div>
+   <span id="Total--product19" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove19()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond20" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://5.imimg.com/data5/IK/YB/ED/SELLER-3177117/oval-shaped-emerald-stone-500x500.jpg" alt=""></div> 
+    <span style="font-weight: bold;">6.15 Ct.Oval Emerald</span> <br>
+    <span style="font-weight: bold;">$ 28,413</span>
+    <br><input type="number" class="number--product20" min="0" onkeyup="numberproduct20()" onclick="numberproduct20()">
+</div>
+<div>
+   <span id="Total--product20" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove20()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond21" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="/eProject_FrontEnd/image/download1.png" alt=""></div> 
+    <span style="font-weight: bold;">1.32 Ct.Emerald Cut Emerald</span> <br>
+    <span style="font-weight: bold;">$ 2,640</span>
+    <br><input type="number" class="number--product21" min="0" onkeyup="numberproduct21()" onclick="numberproduct21()">
+</div>
+<div>
+   <span id="Total--product21" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove21()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond22" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="https://image.brilliantearth.com/media/product_images/69/EMZA7x4.9PS1-1.JPG" alt=""></div> 
+    <span style="font-weight: bold;">1.15 Ct.Pear Emerald</span> <br>
+    <span style="font-weight: bold;">$ 3,723</span>
+    <br><input type="number" class="number--product22" min="0" onkeyup="numberproduct22()" onclick="numberproduct22()">
+</div>
+<div>
+   <span id="Total--product22" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove22()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond23" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="/eProject_FrontEnd/image/download 2.png" alt=""></div> 
+    <span style="font-weight: bold;">1.01 Ct.Pear Emerald</span> <br>
+    <span style="font-weight: bold;">$ 4,671</span>
+    <br><input type="number" class="number--product23" min="0" onkeyup="numberproduct23()" onclick="numberproduct23()">
+</div>
+<div>
+   <span id="Total--product23" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove23()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+<div class="product--diamond24" style="display:none;" >
+    <div style="display: flex; justify-content: space-between;">
+<div>
+<div style="display:block; height: 50px; float: left;"><img style="height: 50px; width:50px" src="/eProject_FrontEnd/image/download 3.png" alt=""></div> 
+    <span style="font-weight: bold;">3.36 Ct.Asscher Emerald</span> <br>
+    <span style="font-weight: bold;">$ 24,984</span>
+    <br><input type="number" class="number--product24" min="0" onkeyup="numberproduct24()" onclick="numberproduct24()">
+</div>
+<div>
+   <span id="Total--product24" style="font-weight: bold;"></span>
+</div>
+</div>
+<div>
+    <span onclick="remove24()" class="remove">Remove item</span>
+</div>
+</div>
+<!--  -->
+    <div id="Last--cart">
+        <hr>
+    <div class="checkout">
+        <div>
+            <p style="font-weight: bold;">Subtotal</p>
+            <span>Shipping, taxes, and discounts calculated at checkout.</span>
+        </div>
+        <div>
+            <span id="TotalCheck" style="font-weight: bold;"></span>
+        </div>
+    </div>
+    <div class="gotocheckout"><a href="PageCheckOut.html"><button class="buttonCheck">Go to checkout</button></a></div>
+     </div>
+    </div>
+      </div>
+
+
+
+
+   <section>
+    <div class="Diamond5--nav">
+        <a class="home--diamond5" href="index.html">Home</a>&nbsp;/&nbsp;
+        6.15 Ct.Oval Emerald
+    </div>
+    <div class="Add--product">
+        <div class="context--product--cart">"6.15 Ct.Oval Emerald" has been added to your cart</div>
+
+        <div class="div--view--cart"><a href="product20.html"><input class="view--cart" type="button" value="View Cart"></a></div>
+    </div>
+    <div class="product--diamond">
+        <div >
+            <img class="img--diamond-first" src="https://5.imimg.com/data5/IK/YB/ED/SELLER-3177117/oval-shaped-emerald-stone-500x500.jpg" alt="">
+        </div>
+        <div class="range--all--product">
+            <h2 class="title-diamond5">6.15 Ct.Oval Emerald</h2>
+            <h2>$ 28,413</h2>
+            <p class="content--diamond--first">A 6.15 Ct. Oval Emerald is a stunning gemstone that can make a beautiful addition to any jewelry collection.</p>
+            <p style="color:gray;">stocking</p>
+            <form onsubmit="ClickAddCart20()">
+            <div class="box--sub--diamond5">
+                <div>
+                    <input type="number" class="numberout--diamond20" min="0" required>
+                </div>
+                <div>
+                 <input type="submit" class="sub--diamond5--first" value="Add to cart">
+                </div>
+            </div>
+        </form>
+        </div>
+
+     </div>
+        <table class="table--diamond-first">
+            <tr class="tr--diamond-first">
+                <td onclick="Descrip()" class="des" > <span >Description</span></td>
+                <td onclick="Revi()" class="rev" > <span >Reviews</span></td>
+            </tr>
+        </table>
+        <div class="context--description--first">
+            A 6.15 Ct. Oval Emerald is a gemstone that weighs 6.15 carats and has an oval shape. <br> Emerald is a type of beryl mineral that is known for its rich green color. <br> This particular emerald has a weight of 6.15 carats, which is a relatively large size for an emerald. The oval shape is a popular cut for gemstones and can highlight the beauty of the stone. <br> The color of emeralds can vary from light green to deep green, and the quality of the stone is often judged by its color, clarity, and cut. Overall, a 6.15 Ct. Oval Emerald is a stunning gemstone that can make a beautiful addition to any jewelry collection.
+        </div>
+    <div class="context--description--first" style="display:none;">
+        <div id="Hiden-Show">
+            <div class="row">
+            <div id="Comment" class="col-sm-6" ></div>
+            <div id="getStar" class="col-sm-6" style="text-align: right;color:yellowgreen;"></div>
+        </div>
+        </div>
+        <h2>Be the first to review "6.15 Ct.Oval Emerald"</h2>
+        <p>Your email address will not be published. Required fields are marked *</p>
+        <form  onsubmit="return Cumment()">
+            <p>Your rating*</p>
+            <div class="rate">
+                <input type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="text" onmouseup=" return zzz(this)" data-star="5" >5 stars</label>
+                <input type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="text" onmouseup="return zzz(this)" data-star="4">4 stars</label>
+                <input type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="text" onmouseup="return zzz(this)" data-star="3">3 stars</label>
+                <input type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="text" onmouseup="return zzz(this)" data-star="2">2 stars</label>
+                <input type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="text" onmouseup="return zzz(this)" data-star="1">1 star</label>
+            </div>
+              <p class="product--review">Your review*</p>
+              <textarea id="text" cols="100" rows="5" required></textarea>
+              <table>
+                <tr>
+                    <td class="td-first">Name*</td>
+                    <td class="td-first"><input class="namecomment" type="text" required></td>
+                </tr>
+                <tr>
+                    <td class="td-first">Email*</td>
+                    <td class="td-first"> <input class="emailcomment" type="email" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="td-first"><input type="checkbox" class="check--diamond--first"><span class="check--diamond--first" >Save my name, email, and website in this browser for the next time I comment.</span> </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" required  class="submit--comment--product"></td>
+                </tr>
+              </table>
+            </form>
+    </div>
+    <div class="next--stage">
+        <div class="container mt-3">
+            <h2 class="related">Related Gemstone</h2>
+            <div id="Will--Be--Hidden">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="lastest--shop">
+                        <a href=""><img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHC-HS9PnDWZ8DUV-TvoqwovKUEEozGeWrqTu1P4rI1YlSdgd4jzK6tZQ9vT7OeTj_NOA&usqp=CAU" class="d-block w-10" alt="..."></a> 
+                        <p class="content--shop--home">D| IF |EX</p>
+                        <p class="name-product">Diamond LS 5.1mm D IF EX</p>
+                        <div class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                       <a href="" class="Cost"><table class="table--home">
+                            <tr>
+                                <td class="td1--cost">$ 4,634</td>
+                                <td class="Td--cost">$ 4,982</td>
+                            </tr>
+                        </table>
+                    </a> 
+                </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="lastest--shop">
+                        <a href="product1.html"><img src="https://product.hstatic.net/1000381168/product/upload_301e29c99f6b490b8db72411a2788c55.jpg" class="d-block w-10" alt="..."></a> 
+                         <p class="content--shop--home">E| IF |EX</p>
+                         <p class="name-product">Diamond LS 5.3mm E IF EX</p>
+                         <div class="star">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <a href="product1.html" class="Cost"><table class="table--home">
+                             <tr>
+                                 <td class="td1--cost">$ 4,657</td>
+                                 <td class="Td--cost">$ 5,013</td>
+                             </tr>
+                         </table>
+                     </a> 
+                     </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="lastest--shop">
+                        <a href=""><img  src="https://diamanti.s3.amazonaws.com/images/diamond/220917-26.jpg" class="d-block w-10" alt="..."></a> 
+                        <p class="content--shop--home">D| VVS1 |EX</p>
+                        <p class="name-product">Diamond LS 5.0mm D VVS1 EX</p>
+                        <div class="star--last">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                       <a href="" class="Cost"><table class="table--home">
+                            <tr>
+                                <td class="td1--cost">$ 4,138</td>
+                                <td class="Td--cost">$ 4,445</td>
+                            </tr>
+                        </table>
+                    </a> 
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div id="Will--Be--Show">
+            <div ng-view>
+                
+            </div>
+        </div>
+            <ul class="pagination">
+         
+              <li class="page-item active" id="Pre"><a class="page-link" href="#!page1" onclick="page1()">1</a></li>
+              <li class="page-item"><a class="page-link" href="#!page2" onclick="page2()">2</a></li>
+              <li class="page-item"><a class="page-link" href="#!page3" onclick="page3()">3</a></li>
+
+            </ul>
+          </div>
+          
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
+    <script src="project.js"></script>
+   </section>
+
+ 
+   <footer>
+    <div class="foot">
+        <div>
+            <h2>Contact Us</h2>
+            <!-- <p>Just a short sentence. Write your own copy text here.</p> -->
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3193500366883!2d106.66408561458913!3d10.786834792314448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed2392c44df%3A0xd2ecb62e0d050fe9!2sFPT-Aptech%20Computer%20Education%20HCM!5e0!3m2!1sen!2s!4v1678870716608!5m2!1sen!2s" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="stone--show">
+            <h2>Gemstone Show</h2>
+            <div class="show">
+                <img style="width:100px;height:100px" src="/eProject_FrontEnd/image/istockphoto-623526050-170667a.jpg" alt="">
+                <img style="width:100px;height:100px" src="/eProject_FrontEnd/image/diamond-1659866135.jpg" alt="">
+                <img style="width:100px;height:100px" src="/eProject_FrontEnd/image/beautiful-gold-glitter-gold-background-concept-design-96789211.jpg" alt="">
+                <img style="width:100px;height:100px" src="/eProject_FrontEnd/image/beautiful-red-ruby-dark_286925-243.avif" alt="">
+                <img style="width:100px;height:100px" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Malphite_0.jpg" alt="">
+                <img  style="width:100px;height:100px" src="/eProject_FrontEnd/image/blue-sapphire-feature-1.jpg" alt="">
+            </div>
+            </div>
+            <div class=cate>
+                <h2>Categories</h2>
+                <ul class="end">
+                    <li class="li1">General</li>
+                    <li class="li1">Diamond</li>
+                    <li class="li1">Gold</li>
+                    <li class="li1">Emerald</li>
+                    <li class="li1">Coming soon</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="mylink">
+        <a class="linkcuatoi" href="https://www.facebook.com/ten-trang-Facebook-cua-ban"><i class="fab fa-facebook"></i></a>
+        <a class="linkcuatoi" href="https://www.instagram.com/ten-trang-Instagram-cua-ban"><i class="fab fa-instagram"></i></a>
+        <a class="linkcuatoi" href="https://www.instagram.com/ten-trang-Instagram-cua-ban"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <div class="name">
+        <div>
+            <h2>Rock Paradise.</h2>
+        </div>
+        <div>
+            <h2 class="last--home">&copy; 2023 Your Company LLC ·<a href="" class="last--name">Rock Paradise by Cuong/Phu</a></h2>
+        </div>
+    </div>
+</footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
+    <script src="/eProject_FrontEnd/JS/project.js"></script>
+    <script>
+    var app = angular.module("myApp",['ngRoute']);
+    app.config(function($routeProvider){
+    $routeProvider
+    .when("/page1",{
+        templateUrl:"RelatedProduct3.html"
+    })
+    .when("/page2",{
+        templateUrl:"RelatedDiamondPage2.html"
+    })
+    .when("/page3",{
+        templateUrl:"RelatedDiamondPage3.html"
+    })
+})
+
+const Showcart = document.getElementsByClassName("Add--product");
+const cartname = document.getElementById("Cart--count--for--all");
+cartname.innerHTML = localStorage.count;
+ if (localStorage.sum20 > 0){
+    Showcart[0].style.display = "flex";
+}
+    else{
+    Showcart[0].style.display = "none"; 
+    }
+    </script>
+    <script src="/eProject_FrontEnd/JS/product20.js" ></script>
+</body>
+</html>

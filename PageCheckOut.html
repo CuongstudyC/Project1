@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - HomePage</title>
+    <link rel="stylesheet" href="/eProject_FrontEnd/CSS/project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <header>
+        Welcome to Rock Paradise, your source for Natural stone products.
+    </header>
+    <h1>
+    <img class="img--header" src="/eProject_FrontEnd/image/z4183471246236_3feda9000440fd5b76193d80857be9a7.jpg" alt="">
+    <a href="index.html" class="nav--header">Rock Paradise.</a>
+</h1>
+     <table class="tb1" onmouseleave="comeout(),comeout1(),comeout2(),comeout3(),comeout4()">
+        <tr style="position: relative;">
+        <td ><ul style="display:block;">
+           <li><span class="selection" onmouseover="comein()" >Home</span></li>
+        </ul></td>
+        <td><ul style="display:block;">
+            <li><span class="selection" onmouseover="comein1()">About</span></li>
+        </ul></td>
+        <td><ul style="display:block;">
+            <li><span class="selection" onmouseover="comein2()">News</span></li>
+        </ul></td>
+        <td><ul style="display:block;">
+            <li><span class="selection" onmouseover="comein3()">Shop</span></li>
+        </ul></td>
+        <td><ul style="display:block;">
+            <li><span class="selection" onmouseover="comein4()">Login</span></li>
+        </ul></td>
+        <td><ul style="display:block;">
+            <li>  <div class="container-fluid mt-3">
+              <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart--shop" disabled>
+                    <span class="cart-icon">
+                        <i class="fa fa-shopping-cart"></i>
+                      </span>
+                </button>
+              </div></li>
+        </ul></td>
+    </tr>
+    <tr style="position: absolute;">
+        <td> <ul onmouseleave="comeout()">
+            <li><a href="index.html" class="list">Home</a></li>
+        </ul></td>
+        <td> <ul onmouseleave="comeout1()">
+            <li><a href="MyTeam.html" class="list">Our Team</a></li>
+            <li><a href="AboutUs.html" class="list">Contact Us</a></li>
+        </ul></td>
+        <td> <ul onmouseleave="comeout2()">
+            <li><a href="NewestGemstones.html" class="list">Newest gemstones</a></li>
+            <li><a href="NewestDiamond.html" class="list">Newest Diamond</a></li>
+            <li><a href="NewestGold.html" class="list">Newest Gold</a></li>
+            <li><a href="NewestEmerald.html" class="list">Newest Emerald</a></li>
+        </ul></td>
+        <td> <ul onmouseleave="comeout3()">
+            <li><a href="Diamond.html" class="list">Diamond</a></li>
+            <li><a href="Gold.html" class="list">Gold</a></li>
+            <li><a href="Emerald.html" class="list">Emerald</a></li>
+            <li><a href="TotalProduct.html" class="list">Total Product</a></li>
+        </ul></td>
+        <td> <ul onmouseleave="comeout4()">
+            <li><a href="PageCheckOut.html" onclick="return CheckItOut()" class="list">Login And CheckOut</a></li>
+            <li></li>
+        </ul></td>
+    </tr>
+    </table>
+
+    <div id="CreatMusic" >
+
+    </div>
+
+      <section>
+        <div>
+            <img class="img--checkout--first" src="https://vnmedia.vn/file/8a10a0d36ccebc89016ce0c6fa3e1b83/8a10a0d36df7d428016dfcc53c1f3c2a/032022/hinh1_20220303094954.jpg" alt="">
+        </div>
+        <div style="background-color: aquamarine;">
+            <h2 class="page--checkout--title">Checkout</h2>
+        </div>
+         <form onsubmit="CheckOut()" id="myForm" action="index.html">
+        <div class="row" id="form--check--out">
+            <div class="col-sm-8">
+                <h2 style="font-weight: bold;">Biling details</h2>
+            <label for="firstname" class="form-label">First Name*</label>
+            <input id="firstname" type="text" class="form-control" required>
+            <label for="lastname" class="form-label">Last Name*</label>
+            <input id="lastname" type="text" class="form-control" required>
+            <label for="country" class="form-label">Country / Region*</label>
+            <select id="country" label="Viet Nam" class="form-select" required>
+                <option value="Viet Nam">Viet Nam</option>
+                <option value="United States(US)">United States(US)</option>
+                <option value="India">India</option>
+            </select>
+            <label for="address" class="form-label">Address*</label>
+            <input id="address" type="text" class="form-control" required>
+            <label for="email" class="form-label">Email*</label>
+            <input id="email" type="email" class="form-control" required>
+            <label for="phone" class="form-label">Phone*</label>
+            <input id="phone" type="number" class="form-control" required>
+            <h2>Additional information</h2>
+            <label for="order" class="form-label">Order notes (optional)</label><br>
+            <textarea id="order" cols="30" rows="5" class="form-control" placeholder="Notes about your order, e.g special notes for the prices"></textarea>
+            </div>
+        <div class="col-sm-4" id="your--order">
+            <h2 style="font-weight: bold;">Your order</h2>
+            <span style="font-size: 20px;">Total: </span><span id="TotalCheck" style="font-weight: bold;"></span>
+            <div>
+                <input id="direct" type="radio" value="direct" class="form-check-inline" name="pay" checked><label for="direct" class="form-check-label">Direct bank transfer</label>
+            </div>
+            <div>
+                <input id="payments" type="radio" value="payments"  class="form-check-inline" name="pay"><label for="payments" class="form-check-label">Check payments</label>
+            </div>
+            <div>
+                <input id="cash" type="radio" value="cash"  class="form-check-inline" name="pay"><label for="cash" class="form-check-label">Cash on delivery</label>
+            </div>
+          <input type="submit" value="Place order" class="submit--checkout">
+           <input type="button" value="Click here to relax" onclick="phatnhac()" >
+        </div>
+    </form>
+      </section>
+    <footer>
+        <div class="foot">
+            <div>
+                <h2>Contact Us</h2>
+                <!-- <p>Just a short sentence. Write your own copy text here.</p> -->
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3193500366883!2d106.66408561458913!3d10.786834792314448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed2392c44df%3A0xd2ecb62e0d050fe9!2sFPT-Aptech%20Computer%20Education%20HCM!5e0!3m2!1sen!2s!4v1678870716608!5m2!1sen!2s" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="stone--show">
+                <h2>Gemstone Show</h2>
+                <div class="show">
+                    <img style="width:100px;height:100px" src="/eProject_FrontEnd/image/istockphoto-623526050-170667a.jpg" alt="">
+                    <img style="width:100px;height:100px" src="/eProject_FrontEnd/image/diamond-1659866135.jpg" alt="">
+                    <img style="width:100px;height:100px" src="/eProject_FrontEnd/image/beautiful-gold-glitter-gold-background-concept-design-96789211.jpg" alt="">
+                    <img style="width:100px;height:100px" src="/eProject_FrontEnd/image/beautiful-red-ruby-dark_286925-243.avif" alt="">
+                    <img style="width:100px;height:100px" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Malphite_0.jpg" alt="">
+                    <img  style="width:100px;height:100px" src="/eProject_FrontEnd/image/blue-sapphire-feature-1.jpg" alt="">
+                </div>
+                </div>
+                <div class=cate>
+                    <h2>Categories</h2>
+                    <ul class="end">
+                        <li class="li1">General</li>
+                        <li class="li1">Diamond</li>
+                        <li class="li1">Gold</li>
+                        <li class="li1">Emerald</li>
+                        <li class="li1">Coming soon</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="mylink">
+            <a class="linkcuatoi" href="https://www.facebook.com/ten-trang-Facebook-cua-ban"><i class="fab fa-facebook"></i></a>
+            <a class="linkcuatoi" href="https://www.instagram.com/ten-trang-Instagram-cua-ban"><i class="fab fa-instagram"></i></a>
+            <a class="linkcuatoi" href="https://www.instagram.com/ten-trang-Instagram-cua-ban"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div class="name">
+            <div>
+                <h2>Rock Paradise.</h2>
+            </div>
+            <div>
+                <h2 class="last--home">&copy; 2023 Your Company LLC ·<a href="" class="last--name">Rock Paradise by Cuong/Phu</a></h2>
+            </div>
+        </div>
+    </footer>
+    <script src="/eProject_FrontEnd/JS/home.js"></script>
+     <script src="/eProject_FrontEnd//JS/project.js"></script>
+     <script>
+        var total= document.getElementById("TotalCheck");
+        totalcheck.innerHTML = "$" + localStorage.TotalForAll;
+        sessionStorage.dem = 1;
+     </script>
+</body>
+</html>
