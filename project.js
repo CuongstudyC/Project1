@@ -3710,7 +3710,7 @@ function stopvideo(){
 function phatnhac(){
     var audio = document.getElementById("CreatMusic");
     if (sessionStorage.dem ==1){
-        audio.innerHTML = "<audio src='/eProject_FrontEnd/image/Weekend-Has-Come-Remix-Remix.mp3' controls autoplay loop id='myaudio'></audio>";
+        audio.innerHTML = "<audio src='Weekend-Has-Come-Remix-Remix.mp3' controls autoplay loop id='myaudio'></audio>";
     }
     var myaudio = document.getElementById("myaudio");
     if (parseInt(sessionStorage.dem) %2 !=0){
