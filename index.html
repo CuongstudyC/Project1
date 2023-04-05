@@ -18,6 +18,9 @@
     <img class="img--header" src="z4183471246236_3feda9000440fd5b76193d80857be9a7.jpg" alt="">
     <a href="index.html" class="nav--header">Rock Paradise.</a>
 </h1>
+<div class="visit">
+    <span id="visitor">(visitor: <span id="count-visitor"></span>)</span>
+</div>
      <table class="tb1" onmouseleave="comeout(),comeout1(),comeout2(),comeout3(),comeout4()">
         <tr style="position: relative;" class="tr--header--home">
         <td ><ul style="display:block;" class="ul-header-home">
@@ -1137,6 +1140,15 @@ if (boxPosition < windowHeight / 2) {
   clearInterval(); /* xóa chuyển đổi màu sắc nếu đã được đặt */
 }
 });
+ if (localStorage.visitor){
+
+}
+else{
+localStorage.visitor = 0;
+}
+const visit =  document.getElementById("count-visitor");
+localStorage.visitor = parseInt(localStorage.visitor) +1;
+visit.innerHTML = localStorage.visitor;
     </script>
     <script src="home.js"></script>
       <script src="project.js"></script>
