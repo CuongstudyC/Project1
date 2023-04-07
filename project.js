@@ -60,9 +60,12 @@ function comeout4(){
     show[10].style.display ="none";
 }
 
+function update(){
 const today = new Date();
 const Today = document.getElementById("Today");
 Today.innerHTML = today;
+}
+setInterval(update,1000);
 //-------------------------------------------------------------------------------------------------------------------------
 
 //khai báo 1 lần
