@@ -60,6 +60,9 @@ function comeout4(){
     show[10].style.display ="none";
 }
 
+const today = new Date();
+const Today = document.getElementById("Today");
+Today.innerHTML = today;
 //-------------------------------------------------------------------------------------------------------------------------
 
 //khai báo 1 lần
