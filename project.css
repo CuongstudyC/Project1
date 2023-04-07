@@ -152,7 +152,7 @@ section{
 #button--modal{
     color:white;
     background-color: black;
-    line-height: 25px;
+    line-height: 20px;
     font-weight: bold;
 }
 #button--modal:hover{
